@@ -4,6 +4,9 @@ class Play extends Phaser.Scene{
     }
 
     create() {
+        this.sfx_speedUp = this.sound.add("speedUp",{volume: 0.4});
+        this.sfx_gameOver = this.sound.add("dead");
+
         this.wooshGroup = [];
 
         this.wooshGroup.push(this.sound.add("woosh1"));
@@ -80,6 +83,7 @@ class Play extends Phaser.Scene{
         }
 
         this.physics.add.collider(this.player, this.speedGroup, (a, b) => {
+            this.sfx_speedUp.play();
             a.speedMult += 0.2;
             a.PLAYER_SPEED = a.BASE_SPEED * (a.speedMult);
             b.destroy();
@@ -111,6 +115,7 @@ class Play extends Phaser.Scene{
 
         this.physics.add.overlap(this.snail, this.player, () => { //if the snail and player touch, game over
             this.scene.restart();
+            this.sfx_gameOver.play();
             this.scene.switch("overScene");
         });
 

@@ -4,6 +4,9 @@ class Load extends Phaser.Scene{
     }
 
     preload() {
+        this.load.path = "./assets/audio/";
+        this.load.audio("speedUp","powerUpwah01.wav");
+        this.load.audio("dead","sfx_gameOver.wav");
         this.load.path = "./assets/audio/woosh/woosh0";
         this.load.audio("woosh1", "1.wav");
         this.load.audio("woosh2", "2.wav");

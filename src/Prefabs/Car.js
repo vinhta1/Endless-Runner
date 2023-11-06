@@ -5,7 +5,7 @@ class Car extends Phaser.GameObjects.Sprite {
         scene.add.existing(this); //add to scene
         scene.physics.add.existing(this); //add body to scene
         
-        this.CAR_SPEED = speed;
+        this.CAR_SPEED = Phaser.Math.FloatBetween(speed*0.7, speed*1.2);
         this.carVector = new Phaser.Math.Vector2(-1,0);
         this.isDriving = false;
 
