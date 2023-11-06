@@ -4,17 +4,25 @@ class Load extends Phaser.Scene{
     }
 
     preload() {
-        this.load.image("road","./assets/road.png");
-        this.load.image("speedUp","./assets/speedUP.png");
-        this.load.path = "./assets/Snail/";
+        this.load.path = "./assets/audio/woosh/woosh0";
+        this.load.audio("woosh1", "1.wav");
+        this.load.audio("woosh2", "2.wav");
+        this.load.audio("woosh3", "3.wav");
+        this.load.audio("woosh4", "4.wav");
+        this.load.audio("woosh6", "6.wav");
+
+        this.load.path = "./assets/images/";
+        this.load.image("road","road.png");
+        this.load.image("speedUp","speedUP.png");
+        this.load.path = "./assets/images/Snail/";
         this.load.spritesheet("snail","snail01.png", { //load snail spritesheet
             frameWidth: 32
         });
 
-        this.load.path = "./assets/Player/";
+        this.load.path = "./assets/images/Player/";
         this.load.atlas("player_atlas","Player.png","PlayerSprites.json"); //load player texture atlas
 
-        this.load.path = "./assets/Cars/";
+        this.load.path = "./assets/images/Cars/";
         this.load.spritesheet("car-1","car-1.png", {
             frameWidth: 60,
             frameHeight: 23

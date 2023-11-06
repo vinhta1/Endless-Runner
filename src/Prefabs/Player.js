@@ -110,6 +110,10 @@ class IdleState extends State { //player has no input, thus moves towards left w
 
 class DashState extends State { //player is dashing and thus is faster, dash is no longer ready
     enter(scene, player){
+        let index = Math.floor(Math.random() * scene.wooshGroup.length);
+        let wooshSound = scene.wooshGroup[index];
+        wooshSound.play();
+        player.setTint();
         console.log("Dashing");
         scene.time.delayedCall(250, () => {
             this.stateMachine.transition("off");
@@ -132,6 +136,7 @@ class DashState extends State { //player is dashing and thus is faster, dash is 
 class DashReady extends State { //dash is ready
     enter(scene, player){
         console.log("Dash Ready");
+        player.setTint(0xffffa8);
         cursors.shift.once("down", () => { //event listeners in create
             this.stateMachine.transition("dash");
         });

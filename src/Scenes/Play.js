@@ -4,6 +4,14 @@ class Play extends Phaser.Scene{
     }
 
     create() {
+        this.wooshGroup = [];
+
+        this.wooshGroup.push(this.sound.add("woosh1"));
+        this.wooshGroup.push(this.sound.add("woosh2"));
+        this.wooshGroup.push(this.sound.add("woosh3"));
+        this.wooshGroup.push(this.sound.add("woosh4"));
+        this.wooshGroup.push(this.sound.add("woosh6"));
+
         //debug text
         //this.text1 = this.add.text(10, 10, '', { fill: '#00ff00' }).setScale(10);
         
