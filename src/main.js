@@ -1,6 +1,6 @@
 // Vinh Ta
 // The Snail Wants to Kill You
-// First day, 4-5 hours; Second day, 2.5 hours + 4.5 hours
+// First day, 4-5 hours; Second day, 2.5 hours; Third day, 8.5 hours
 // Creative Tilt:
 //      I produced all the assets other than one sample (unprocessed chomp). Pretty proud of the thematic feel of the game.
 //      I think it invokes a calm sense of dread that fits the joke the game was based off of (the immortal snail that kills you)
@@ -8,14 +8,20 @@
 //      This might not be worth as much, but I'm starting to figure out groups and call back functions a bit better.
 //      Reading the Phaser documentation has been difficult, but I'm getting better at it.
 
+// A BUNCH from Professor Nathan's github
+//      https://github.com/nathanaltice
 // Resize to screen
 //      https://phaser.discourse.group/t/scaling-game-to-fit-entire-window/6219/2
 // Animations from texture atlas
 //      https://phaser.io/examples/v3/view/animation/create-animation-from-texture-atlas
 // Tint
 //      https://phaser.io/examples/v3/view/display/tint/tint-and-alpha
-// Destroying children
+// Destroying children (I don't think this actually stayed in because it didn't work)
 //      https://phaser.io/examples/v3/view/game-objects/group/destroy-child
+// Camera fade in
+//      https://phaser.io/examples/v3/view/camera/camera-fade-in-and-out
+// Passing data
+//      https://phaser.io/examples/v3/view/scenes/passing-data-to-a-scene
 
 
 "use strict"
