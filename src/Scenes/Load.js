@@ -7,6 +7,8 @@ class Load extends Phaser.Scene{
         this.load.path = "./assets/audio/";
         this.load.audio("speedUp","powerUpwah01.wav");
         this.load.audio("dead","sfx_gameOver.wav");
+        this.load.audio("cars", "highwayAmbienec.wav");
+        this.load.audio("bgmMusic","music/TheSnailWantsToKillYou.wav");
         this.load.path = "./assets/audio/woosh/woosh0";
         this.load.audio("woosh1", "1.wav");
         this.load.audio("woosh2", "2.wav");
@@ -108,7 +110,7 @@ class Load extends Phaser.Scene{
         this.scale.displaySize.setAspectRatio(game.config.width/this.game.config.height);
         this.scale.refresh();
 
-        this.scene.switch("menuScene");
+        this.scene.start("menuScene");
     }
 
 }

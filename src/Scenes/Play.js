@@ -15,6 +15,18 @@ class Play extends Phaser.Scene{
         this.wooshGroup.push(this.sound.add("woosh4"));
         this.wooshGroup.push(this.sound.add("woosh6"));
 
+        this.bgm = this.sound.add("bgmMusic", {
+            volume:0.4,
+            loop: true,
+            rate: 1
+        });
+        this.ambience = this.sound.add("cars", {
+            volume:0.4,
+            loop: true,
+            rate: 1
+        });
+        this.bgm.play();
+        this.ambience.play();
         //debug text
         //this.text1 = this.add.text(10, 10, '', { fill: '#00ff00' }).setScale(10);
         
@@ -84,6 +96,7 @@ class Play extends Phaser.Scene{
 
         this.physics.add.collider(this.player, this.speedGroup, (a, b) => {
             this.sfx_speedUp.play();
+            this.bgm.rate += 0.01;
             a.speedMult += 0.2;
             a.PLAYER_SPEED = a.BASE_SPEED * (a.speedMult);
             b.destroy();
@@ -114,9 +127,11 @@ class Play extends Phaser.Scene{
         //this.snailCam.startFollow(this.snail,false);
 
         this.physics.add.overlap(this.snail, this.player, () => { //if the snail and player touch, game over
-            this.scene.restart();
+            this.bgm.stop();
+            this.ambience.stop();
+            //this.scene.restart();
             this.sfx_gameOver.play();
-            this.scene.switch("overScene");
+            this.scene.start("overScene");
         });
 
         
