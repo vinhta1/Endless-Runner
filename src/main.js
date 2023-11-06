@@ -8,6 +8,8 @@
 //      https://phaser.io/examples/v3/view/animation/create-animation-from-texture-atlas
 // Tint
 //      https://phaser.io/examples/v3/view/display/tint/tint-and-alpha
+// Destroying children
+//      https://phaser.io/examples/v3/view/game-objects/group/destroy-child
 
 
 "use strict"

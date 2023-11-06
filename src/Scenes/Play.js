@@ -91,6 +91,7 @@ class Play extends Phaser.Scene{
                 let speedUp = this.speedGroup.create(game.config.width + 100, randY, "speedUp").setScale(5);
                 this.physics.add.existing(speedUp);
                 speedUp.body.setVelocityX(Phaser.Math.Between(-1000,-200));
+                speedUp.anims.play("coffeeJiggle",true);
             });
         }
 
@@ -134,8 +135,12 @@ class Play extends Phaser.Scene{
             this.scene.start("overScene");
         });
 
-        
-
+        this.catcher = this.add.rectangle(game.config.width / 10 * -1, game.config.height/10 * -1, game.config.width / 10, game.config.height * 12 / 10);
+        this.physics.add.existing(this.catcher);
+        this.physics.add.collider(this.speedGroup, this.catcher, (a) => {
+            a.destroy();
+            console.log("test");
+        }, null, this);
     }
 
     update() {
@@ -166,6 +171,8 @@ class Play extends Phaser.Scene{
             snailToX = game.config.width/10;
         }
         this.physics.moveTo(this.snail, snailToX, this.player.y, this.snail.SNAIL_SPEED);
+    
+        
     }
     
     

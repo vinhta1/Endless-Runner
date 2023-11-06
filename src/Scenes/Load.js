@@ -5,7 +5,7 @@ class Load extends Phaser.Scene{
 
     preload() {
         this.load.path = "./assets/audio/";
-        this.load.audio("speedUp","powerUpwah01.wav");
+        this.load.audio("speedUp","slurp.wav");
         this.load.audio("dead","sfx_gameOver.wav");
         this.load.audio("cars", "highwayAmbienec.wav");
         this.load.audio("bgmMusic","music/TheSnailWantsToKillYou.wav");
@@ -18,7 +18,10 @@ class Load extends Phaser.Scene{
 
         this.load.path = "./assets/images/";
         this.load.image("road","road.png");
-        this.load.image("speedUp","speedUP.png");
+        this.load.spritesheet("speedUp","coffee.png", {
+            frameWidth: 13,
+            frameHeight: 16
+        });
         this.load.path = "./assets/images/Snail/";
         this.load.spritesheet("snail","snail01.png", { //load snail spritesheet
             frameWidth: 32
@@ -36,6 +39,16 @@ class Load extends Phaser.Scene{
 
 
     create() {
+        this.anims.create({
+            key:"coffeeJiggle",
+            frames: this.anims.generateFrameNumbers("speedUp",{
+                start: 0,
+                end: 1
+            }),
+            frameRate: 2,
+            repeat: -1
+        });
+
         this.anims.create({
             key:"snailMove",
             frames: this.anims.generateFrameNumbers("snail",{
