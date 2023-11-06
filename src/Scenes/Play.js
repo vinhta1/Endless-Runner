@@ -35,17 +35,17 @@ class Play extends Phaser.Scene{
         this.road = this.add.tileSprite(0, 0, game.config.width, game.config.height, 'road').setOrigin(0)
 
         // debug key listener (assigned to D key) https://github.com/nathanaltice/FSM/blob/6a831e4e8623aafe7851bd3550ecf9617d478299/src/scenes/Play.js#L17
-        this.input.keyboard.on('keydown-D', function() { //can skip the key creation process if not super important
-            this.physics.world.drawDebug = this.physics.world.drawDebug ? false : true
-            this.physics.world.debugGraphic.clear()
-        }, this)
+        // this.input.keyboard.on('keydown-D', function() { //can skip the key creation process if not super important
+        //     this.physics.world.drawDebug = this.physics.world.drawDebug ? false : true
+        //     this.physics.world.debugGraphic.clear()
+        // }, this)
 
          // update instruction text https://github.com/nathanaltice/FSM/blob/6a831e4e8623aafe7851bd3550ecf9617d478299/src/scenes/Play.js#L23
-         document.getElementById('info').innerHTML = '<strong>CharacterFSM.js:</strong> Arrows: move | SHIFT: dash| D: debug (toggle)'
+         // document.getElementById('info').innerHTML = '<strong>CharacterFSM.js:</strong> Arrows: move | SHIFT: dash| D: debug (toggle)'
         
 
         cursors = this.input.keyboard.createCursorKeys(); //create up, down, etc
-        console.log("Play"); // quick debug console log
+        //console.log("Play"); // quick debug console log
 
         this.snail = new Snail(this, 0, 0, "snail").setOrigin(0.5, 1);
 
@@ -76,7 +76,7 @@ class Play extends Phaser.Scene{
             
                 car.body.pushable = false;
                 car.isDriving = true;
-                console.log(`vroom ${i}`);
+                //console.log(`vroom ${i}`);
                this.physics.collide(car,this.carsGroup, () => {});
             });
         }
@@ -141,7 +141,7 @@ class Play extends Phaser.Scene{
         this.physics.add.existing(this.catcher);
         this.physics.add.collider(this.speedGroup, this.catcher, (a) => {
             a.destroy();
-            console.log("test");
+            //console.log("test");
         }, null, this);
 
         // making the coffee counter

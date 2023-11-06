@@ -46,7 +46,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
 class MoveState extends State { //player is moving
     enter(){
-        console.log("Move");
+        //console.log("Move");
     }
     execute(scene, player, snail){
         player.setDepth(player.y + 64);
@@ -92,7 +92,7 @@ class MoveState extends State { //player is moving
 class IdleState extends State { //player has no input, thus moves towards left wall
     enter(scene, player){
         player.anims.play(`walk-right`, true)
-        console.log("Idle");
+        //console.log("Idle");
     }
     execute(scene, player, snail){
         let snailFactor = snail.SNAIL_SPEED/100;
@@ -114,7 +114,7 @@ class DashState extends State { //player is dashing and thus is faster, dash is 
         let wooshSound = scene.wooshGroup[index];
         wooshSound.play();
         player.setTint();
-        console.log("Dashing");
+        //console.log("Dashing");
         scene.time.delayedCall(250, () => {
             this.stateMachine.transition("off");
         })
@@ -135,7 +135,7 @@ class DashState extends State { //player is dashing and thus is faster, dash is 
 
 class DashReady extends State { //dash is ready
     enter(scene, player){
-        console.log("Dash Ready");
+        //console.log("Dash Ready");
         player.setTint(0xffffa8);
         cursors.shift.once("down", () => { //event listeners in create
             this.stateMachine.transition("dash");
@@ -151,7 +151,7 @@ class DashReady extends State { //dash is ready
 
 class DashOff extends State { //dash is on cooldown
     enter(scene, player){
-        console.log("Dash Off");
+        //console.log("Dash Off");
         scene.time.delayedCall(1000, () => {
             this.stateMachine.transition("ready");
         })

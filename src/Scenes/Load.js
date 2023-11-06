@@ -121,7 +121,7 @@ class Load extends Phaser.Scene{
             })
         })
 
-        console.log("Load"); //debug
+        //console.log("Load"); //debug
         cursors = this.input.keyboard.createCursorKeys();
 
         this.scale.displaySize.setAspectRatio(game.config.width/this.game.config.height);

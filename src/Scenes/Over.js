@@ -8,7 +8,7 @@ class Over extends Phaser.Scene {
     }
 
     create () {
-        console.log("Game Over"); //quick debug console log
+        //console.log("Game Over"); //quick debug console log
         this.overScreen = this.add.image(0, 0, "overScreen").setOrigin(0);
         this.overScreen.setDisplaySize(game.config.width, game.config.height);
 
