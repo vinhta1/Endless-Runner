@@ -1,15 +1,21 @@
 // Vinh Ta
 // The Snail Wants to Kill You
-// First day, 4-5 hours; Second day, 2.5 hours + 4.5 hours
+// First day, 4-5 hours; Second day, 2.5 hours; Third day, 8.5 hours
 
+// A BUNCH from Professor Nathan's github
+//      https://github.com/nathanaltice
 // Resize to screen
 //      https://phaser.discourse.group/t/scaling-game-to-fit-entire-window/6219/2
 // Animations from texture atlas
 //      https://phaser.io/examples/v3/view/animation/create-animation-from-texture-atlas
 // Tint
 //      https://phaser.io/examples/v3/view/display/tint/tint-and-alpha
-// Destroying children
+// Destroying children (I don't think this actually stayed in because it didn't work)
 //      https://phaser.io/examples/v3/view/game-objects/group/destroy-child
+// Camera fade in
+//      https://phaser.io/examples/v3/view/camera/camera-fade-in-and-out
+// Passing data
+//      https://phaser.io/examples/v3/view/scenes/passing-data-to-a-scene
 
 
 "use strict"

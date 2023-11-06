@@ -4,6 +4,7 @@ class Play extends Phaser.Scene{
     }
 
     create() {
+        this.coffeeDrank = 0;
         this.sfx_speedUp = this.sound.add("speedUp",{volume: 0.4});
         this.sfx_gameOver = this.sound.add("dead");
 
@@ -100,6 +101,7 @@ class Play extends Phaser.Scene{
             this.bgm.rate += 0.01;
             a.speedMult += 0.2;
             a.PLAYER_SPEED = a.BASE_SPEED * (a.speedMult);
+            this.coffeeDrank++;
             b.destroy();
         }, null, this);
         
@@ -132,7 +134,7 @@ class Play extends Phaser.Scene{
             this.ambience.stop();
             //this.scene.restart();
             this.sfx_gameOver.play();
-            this.scene.start("overScene");
+            this.scene.start("overScene", {score: this.coffeeDrank}); // https://phaser.io/examples/v3/view/scenes/passing-data-to-a-scene
         });
 
         this.catcher = this.add.rectangle(game.config.width / 10 * -1, game.config.height/10 * -1, game.config.width / 10, game.config.height * 12 / 10);
@@ -141,6 +143,18 @@ class Play extends Phaser.Scene{
             a.destroy();
             console.log("test");
         }, null, this);
+
+        // making the coffee counter
+        this.UIBar = this.add.graphics();
+        this.UIBar.fillStyle(0x222222,0.9);
+        this.UIBar.fillRect(game.config.width*8/10, game.config.height * 7/10, game.config.width *1.5/10, game.config.height* 1.5/10)
+
+        this.UICoffee = this.add.sprite(game.config.width*8/10 +game.config.width *0.75/20, game.config.height * 7/10 + game.config.height* 1.5/20,"speedUp").setScale(6).setAlpha(.9).setDepth(1);
+        this.UICoffee.anims.play("coffeeJiggle", true);
+
+        this.UIText = this.add.text(game.config.width*8/10 + game.config.width * 2/20, game.config.height * 7/10 + game.config.height* 1.75/20, '', { fill: '#ffffff',
+    }).setScale(6).setOrigin(0.5).setAlign("center");
+        
     }
 
     update() {
@@ -172,7 +186,9 @@ class Play extends Phaser.Scene{
         }
         this.physics.moveTo(this.snail, snailToX, this.player.y, this.snail.SNAIL_SPEED);
     
-        
+        this.UIText.setText([
+            `${this.coffeeDrank}`
+        ]);
     }
     
     
