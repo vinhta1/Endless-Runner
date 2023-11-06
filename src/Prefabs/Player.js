@@ -2,12 +2,19 @@ class Player extends Phaser.GameObjects.Sprite {
     constructor(scene, x, y, texture, frame, speed = 100){
         super(scene, x, y, texture, frame);
 
-        scene.add.existing(this);
-        scene.physics.add.existing(this);
+        scene.add.existing(this); //add to scene
+        scene.physics.add.existing(this); //add body to scene
         this.PLAYER_SPEED = speed;
         this.direction = "right";
         this.dashReady = true;
         this.playerVector = new Phaser.Math.Vector2(0,0);
+
+        // these two lines were weird. didn't work how I expected at all.
+        this.body.setSize(this.width/2, this.height/2);
+        this.body.setOffset(this.width/4, this.height/2);
+
+        //this.body.onWorldBounds = true; this isn't necessary... for now
+        this.body.setCollideWorldBounds(true); //yay walls
     }
 
     // create() {
@@ -33,7 +40,7 @@ class Player extends Phaser.GameObjects.Sprite {
 
 }
 
-class MoveState extends State {
+class MoveState extends State { //player is moving
     enter(){
         console.log("Move");
     }
@@ -68,14 +75,14 @@ class MoveState extends State {
         player.playerVector.normalize();
         player.body.setVelocity(player.PLAYER_SPEED * player.playerVector.x - (snail.SNAIL_SPEED), player.PLAYER_SPEED * player.playerVector.y);
         // player.body.setVelocity(-snail.SNAIL_SPEED, player.PLAYER_SPEED * player.playerVector.y);
-        player.anims.play(`walk-${player.direction}`, true)
+        player.anims.play(`walk-${player.direction}`,true);
     }
     exit(){
 
     }
 }
 
-class IdleState extends State {
+class IdleState extends State { //player has no input, thus moves towards left wall
     enter(scene, player){
         player.anims.play(`walk-right`, true)
         console.log("Idle");
@@ -87,14 +94,14 @@ class IdleState extends State {
         if (cursors.right.isDown || cursors.left.isDown || cursors.up.isDown || cursors.down.isDown){
             this.stateMachine.transition("move");
         }
-        player.anims.play(`walk-right`, true)
+        player.anims.play(`walk-right`, true);
     }
     exit(){
         
     }
 }
 
-class DashState extends State {
+class DashState extends State { //player is dashing and thus is faster, dash is no longer ready
     enter(scene, player){
         console.log("Dashing");
         scene.time.delayedCall(250, () => {
@@ -115,7 +122,7 @@ class DashState extends State {
     }
 }
 
-class DashReady extends State {
+class DashReady extends State { //dash is ready
     enter(scene, player){
         console.log("Dash Ready");
         cursors.shift.once("down", () => { //event listeners in create
@@ -130,7 +137,7 @@ class DashReady extends State {
     }
 }
 
-class DashOff extends State {
+class DashOff extends State { //dash is on cooldown
     enter(scene, player){
         console.log("Dash Off");
         scene.time.delayedCall(1000, () => {

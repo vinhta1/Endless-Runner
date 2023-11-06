@@ -80,7 +80,7 @@ class Load extends Phaser.Scene{
         this.scale.displaySize.setAspectRatio(game.config.width/this.game.config.height);
         this.scale.refresh();
 
-        this.scene.switch("playScene");
+        this.scene.switch("menuScene");
     }
 
 }

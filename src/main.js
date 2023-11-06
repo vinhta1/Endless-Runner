@@ -1,6 +1,6 @@
 // Vinh Ta
 // The Snail Wants to Kill You
-// First day, 4-5 hours
+// First day, 4-5 hours; Second day, 2.5 hours.
 
 // Resize to screen
 //      https://phaser.discourse.group/t/scaling-game-to-fit-entire-window/6219/2
@@ -22,10 +22,10 @@ let config = {
     physics: {
         default: "arcade",
         arcade: {
-            debug: false //true
+            debug: true //true
         }
     },
-    scene: [Load, Play]
+    scene: [Load, Menu, Play, Over]
 }
 
 let game = new Phaser.Game(config);
