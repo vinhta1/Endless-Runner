@@ -1,6 +1,12 @@
 // Vinh Ta
 // The Snail Wants to Kill You
 // First day, 4-5 hours; Second day, 2.5 hours + 4.5 hours
+// Creative Tilt:
+//      I produced all the assets other than one sample (unprocessed chomp). Pretty proud of the thematic feel of the game.
+//      I think it invokes a calm sense of dread that fits the joke the game was based off of (the immortal snail that kills you)
+//      As for technical aspects, I'm proud of using the camera as a practical joke, setting up the snail as the focalizer and anchor point.
+//      This might not be worth as much, but I'm starting to figure out groups and call back functions a bit better.
+//      Reading the Phaser documentation has been difficult, but I'm getting better at it.
 
 // Resize to screen
 //      https://phaser.discourse.group/t/scaling-game-to-fit-entire-window/6219/2
