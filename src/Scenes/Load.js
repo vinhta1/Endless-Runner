@@ -18,6 +18,7 @@ class Load extends Phaser.Scene{
 
         this.load.path = "./assets/images/";
         this.load.image("road","road.png");
+        this.load.image("title","titleScreen.png");
         this.load.spritesheet("speedUp","coffee.png", {
             frameWidth: 13,
             frameHeight: 16
@@ -35,6 +36,8 @@ class Load extends Phaser.Scene{
             frameWidth: 60,
             frameHeight: 23
         }) //blue sedan
+
+        
     }
 
 
