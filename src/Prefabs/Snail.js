@@ -5,13 +5,17 @@ class Snail extends Phaser.GameObjects.Sprite {
         scene.add.existing(this);
         scene.physics.add.existing(this);
         this.SNAIL_SPEED = speed;
-    }
 
-    create() {
         this.setRandomPosition(32, 0, 68, game.config.height);
         this.snailVector = new Phaser.Math.Vector2(0,0);
         this.play("snailMove", true);
     }
+
+    // create() {
+    //     this.setRandomPosition(32, 0, 68, game.config.height);
+    //     this.snailVector = new Phaser.Math.Vector2(0,0);
+    //     this.play("snailMove", true);
+    // }
 
     update() {
         this.snailVector.normalize();

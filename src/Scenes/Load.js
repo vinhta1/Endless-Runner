@@ -4,6 +4,8 @@ class Load extends Phaser.Scene{
     }
 
     preload() {
+        this.load.image("road","./assets/road.png");
+        this.load.image("speedUp","./assets/speedUP.png");
         this.load.path = "./assets/Snail/";
         this.load.spritesheet("snail","snail01.png", { //load snail spritesheet
             frameWidth: 32
@@ -12,6 +14,11 @@ class Load extends Phaser.Scene{
         this.load.path = "./assets/Player/";
         this.load.atlas("player_atlas","Player.png","PlayerSprites.json"); //load player texture atlas
 
+        this.load.path = "./assets/Cars/";
+        this.load.spritesheet("car-1","car-1.png", {
+            frameWidth: 60,
+            frameHeight: 23
+        }) //blue sedan
     }
 
 
@@ -23,6 +30,16 @@ class Load extends Phaser.Scene{
                 end: 1
             }),
             frameRate: 2,
+            repeat: -1
+        });
+
+        this.anims.create({
+            key:"car-1-move",
+            frames: this.anims.generateFrameNumbers("car-1",{
+                start: 0,
+                end: 1
+            }),
+            frameRate: 10,
             repeat: -1
         });
 
