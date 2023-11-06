@@ -20,6 +20,13 @@ class Over extends Phaser.Scene {
             });
         }, null, this); //don't forget the "null, this"
 
+        this.creditText = this.add.text(game.config.width/2, game.config.height * 1/10, '', { fill: '#ffffff',
+    }).setScale(3).setOrigin(0.5, 0).setAlign("center");
+        this.creditText.setText([
+            "Game and assets made by Vinh Ta,",
+            "except for the chomp, that was KeshaEuw Shorts"
+        ]);
+
         this.overText = this.add.text(game.config.width/2, game.config.height * 15/20, '', { fill: '#ffffff',
     }).setScale(4).setOrigin(0.5, 0).setAlign("center");
         this.overText.setText([
